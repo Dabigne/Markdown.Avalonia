@@ -2,13 +2,9 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-
-        xmlns:i="clr-namespace:Avalonia.Xaml.Interactivity;assembly=Avalonia.Xaml.Interactivity"
         xmlns:vm="clr-namespace:Markdown.AvaloniaFluentAvaloniaDemo.ViewModels;assembly=Markdown.AvaloniaFluentAvaloniaDemo"
         xmlns:local="clr-namespace:Markdown.AvaloniaFluentAvaloniaDemo;assembly=Markdown.AvaloniaFluentAvaloniaDemo"
-
         xmlns:md="clr-namespace:Markdown.Avalonia;assembly=Markdown.Avalonia"
-
         mc:Ignorable="d" d:DesignWidth="900" d:DesignHeight="450"
         x:Class="Markdown.AvaloniaFluentAvaloniaDemo.Views.MainWindow"
         Icon="/Assets/avalonia-logo.ico"

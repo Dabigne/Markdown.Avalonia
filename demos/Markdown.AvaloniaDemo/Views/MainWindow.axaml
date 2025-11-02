@@ -2,22 +2,16 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-
-        xmlns:i="clr-namespace:Avalonia.Xaml.Interactivity;assembly=Avalonia.Xaml.Interactivity"
         xmlns:vm="clr-namespace:Markdown.AvaloniaDemo.ViewModels;assembly=Markdown.AvaloniaDemo"
         xmlns:local="clr-namespace:Markdown.AvaloniaDemo;assembly=Markdown.AvaloniaDemo"
-
         xmlns:md="https://github.com/whistyun/Markdown.Avalonia"
         xmlns:mde="https://github.com/whistyun/Markdown.Avalonia.SyntaxHigh"
-
         mc:Ignorable="d" d:DesignWidth="900" d:DesignHeight="450"
         x:Class="Markdown.AvaloniaDemo.Views.MainWindow"
-        
         x:DataType="vm:MainWindowViewModel"
         x:CompileBindings="True"
         Icon="/Assets/avalonia-logo.ico"
-        Title="Markdown.AvaloniaDemo"
-        >
+        Title="Markdown.AvaloniaDemo">
 
   <Design.DataContext>
     <vm:MainWindowViewModel/>

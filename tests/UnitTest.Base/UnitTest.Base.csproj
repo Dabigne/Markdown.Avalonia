@@ -3,7 +3,7 @@
   <Import Project="..\UnitTest.props" />
 
   <PropertyGroup>
-    <TargetFrameworks>$(TestTargetFrameworks)</TargetFrameworks>
+      <TargetFramework>net9.0</TargetFramework>
     <IsPackable>false</IsPackable>
     <LangVersion>9</LangVersion>
     <Nullable>disable</Nullable>

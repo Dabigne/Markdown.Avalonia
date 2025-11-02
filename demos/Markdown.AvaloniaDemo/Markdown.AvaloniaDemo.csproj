@@ -5,7 +5,7 @@
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <IsPackable>false</IsPackable>
-    <TargetFrameworks>$(DemoAppTargetFrameworks)</TargetFrameworks>
+      <TargetFramework>net9.0</TargetFramework>
     <LangVersion>9</LangVersion>
     <Nullable>disable</Nullable>
   </PropertyGroup>
