@@ -9,13 +9,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Avalonia" Version="$(TestAvaloniaVersion)" />
-    <PackageReference Include="Avalonia.Desktop" Version="$(TestAvaloniaVersion)" />
-    <PackageReference Include="Avalonia.Themes.Simple" Version="$(TestAvaloniaVersion)" />
+    <PackageReference Include="Avalonia" Version="11.3.5" />
+    <PackageReference Include="Avalonia.Desktop" Version="11.3.5" />
+    <PackageReference Include="Avalonia.Themes.Simple" Version="11.3.5" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="BenchmarkDotNet" Version="0.13.12" />
+    <PackageReference Include="BenchmarkDotNet" Version="0.15.5" />
     <PackageReference Include="Html2Markdown" Version="6.2.0.3" />
     <PackageReference Include="ReverseMarkdown" Version="4.3.0" />
     <PackageReference Include="MarkdownFromHtml" Version="1.1.1" />

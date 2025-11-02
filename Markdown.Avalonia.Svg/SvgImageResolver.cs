@@ -1,31 +1,29 @@
 ﻿using System;
 using System.IO;
-using System.Xml;
-using Avalonia.Svg;
-using Svg.Model;
-using Avalonia.Media;
-using Markdown.Avalonia.Utils;
 using System.Threading.Tasks;
+using System.Xml;
+using Avalonia.Media;
+using Avalonia.Svg;
+using Markdown.Avalonia.Utils;
+using Svg.Model.Services;
 
 namespace Markdown.Avalonia.Svg
 {
     internal class SvgImageResolver : IImageResolver
     {
-        private static readonly AvaloniaAssetLoader _svgAssetLoader = new();
-
+        private static readonly AvaloniaSvgAssetLoader _svgAssetLoader = new();
+        
         public async Task<IImage?> Load(Stream stream)
         {
             var task = Task.Run(() =>
             {
-                if (IsSvgFile(stream))
-                {
-                    var document = SvgExtensions.Open(stream);
-                    var picture = document is { } ? SvgExtensions.ToModel(document, _svgAssetLoader, out _, out _) : default;
-                    var svgsrc = new SvgSource() { Picture = picture };
-                    return (IImage)new VectorImage() { Source = svgsrc };
-                }
-
-                return null;
+                if (!IsSvgFile(stream))
+                    return null;
+                
+                var document = SvgService.Open(stream);
+                var picture = document is { } ? SvgService.ToModel(document, _svgAssetLoader, out _, out _) : default;
+                var svgsrc = new SvgSource { Picture = picture };
+                return (IImage)new VectorImage() { Source = svgsrc };
             });
 
             return await task;
@@ -40,11 +38,9 @@ namespace Markdown.Avalonia.Svg
                     return false;
 
                 fileStream.Seek(0, SeekOrigin.Begin);
-                using (var xmlReader = XmlReader.Create(fileStream))
-                {
-                    return xmlReader.MoveToContent() == XmlNodeType.Element &&
-                           "svg".Equals(xmlReader.Name, StringComparison.OrdinalIgnoreCase);
-                }
+                using var xmlReader = XmlReader.Create(fileStream);
+                return xmlReader.MoveToContent() == XmlNodeType.Element &&
+                       "svg".Equals(xmlReader.Name, StringComparison.OrdinalIgnoreCase);
             }
             catch
             {

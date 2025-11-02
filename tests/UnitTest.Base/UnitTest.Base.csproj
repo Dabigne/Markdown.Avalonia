@@ -16,8 +16,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Avalonia" Version="$(TestAvaloniaVersion)" />
-    <PackageReference Include="Avalonia.Desktop" Version="$(TestAvaloniaVersion)" />
-    <PackageReference Include="Avalonia.Themes.Simple" Version="$(TestAvaloniaVersion)" />
+    <PackageReference Include="Avalonia" Version="11.3.5" />
+    <PackageReference Include="Avalonia.Desktop" Version="11.3.5" />
+    <PackageReference Include="Avalonia.Themes.Simple" Version="11.3.5" />
+    <PackageReference Update="ApprovalTests" Version="7.0.0" />
   </ItemGroup>
 </Project>
