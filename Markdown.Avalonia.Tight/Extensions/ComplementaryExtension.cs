@@ -7,7 +7,6 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-using System.Text;
 
 namespace Markdown.Avalonia.Extensions
 {
@@ -28,15 +27,13 @@ namespace Markdown.Avalonia.Extensions
 
             return new MultiBinding()
             {
-                Bindings = new IBinding[] { brush },
+                Bindings = new[] { brush },
                 Converter = new ComplementaryConverter()
             };
         }
 
         class ComplementaryConverter : IMultiValueConverter
         {
-            public ComplementaryConverter() { }
-
             public object? Convert(IList<object?> values, Type targetType, object? parameter, CultureInfo culture)
             {
                 Color c;

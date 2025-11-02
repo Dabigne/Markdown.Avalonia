@@ -1,11 +1,9 @@
-﻿using Avalonia;
-using Avalonia.Data;
+﻿using Avalonia.Data;
 using Avalonia.Data.Converters;
 using Avalonia.Markup.Xaml;
 using Avalonia.Markup.Xaml.MarkupExtensions;
 using Avalonia.Media;
 using System;
-using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Globalization;
 
@@ -56,7 +54,7 @@ namespace Markdown.Avalonia.Extensions
 
             return new MultiBinding()
             {
-                Bindings = new IBinding[] { left, right },
+                Bindings = new[] { left, right },
                 Converter = new DivideConverter(_relate)
             };
         }
@@ -74,20 +72,30 @@ namespace Markdown.Avalonia.Extensions
         public object? Convert(IList<object?> values, Type targetType, object? parameter, CultureInfo culture)
         {
             Color colL;
-            if (values[0] is ISolidColorBrush bl)
-                colL = bl.Color;
-            else if (values[0] is Color cl)
-                colL = cl;
-            else
-                return values[0];
+            switch (values[0])
+            {
+                case ISolidColorBrush bl:
+                    colL = bl.Color;
+                    break;
+                case Color cl:
+                    colL = cl;
+                    break;
+                default:
+                    return values[0];
+            }
 
             Color colR;
-            if (values[1] is ISolidColorBrush br)
-                colR = br.Color;
-            else if (values[1] is Color cr)
-                colR = cr;
-            else
-                return values[0];
+            switch (values[1])
+            {
+                case ISolidColorBrush br:
+                    colR = br.Color;
+                    break;
+                case Color cr:
+                    colR = cr;
+                    break;
+                default:
+                    return values[0];
+            }
 
             static byte Calc(byte l, byte r, double d)
                 => (byte)(l * (1 - d) + r * d);

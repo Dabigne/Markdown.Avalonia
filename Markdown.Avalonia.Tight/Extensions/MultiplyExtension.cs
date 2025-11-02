@@ -1,17 +1,10 @@
-﻿using Avalonia;
-using Avalonia.Controls;
-using Avalonia.Data;
+﻿using Avalonia.Data;
 using Avalonia.Data.Converters;
 using Avalonia.Markup.Xaml;
 using Avalonia.Markup.Xaml.MarkupExtensions;
-using Avalonia.Media;
-using Avalonia.Styling;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using System.Reflection;
-using System.Text;
 
 namespace Markdown.Avalonia.Extensions
 {
@@ -20,12 +13,13 @@ namespace Markdown.Avalonia.Extensions
         private readonly string _resourceKey;
         private readonly double _scale;
 
+        // ReSharper disable once IntroduceOptionalParameters.Global
         public MultiplyExtension(string resourceKey) : this(resourceKey, 1) { }
 
         public MultiplyExtension(string resourceKey, double scale)
         {
-            this._resourceKey = resourceKey;
-            this._scale = scale;
+            _resourceKey = resourceKey;
+            _scale = scale;
         }
 
         public override object ProvideValue(IServiceProvider serviceProvider)

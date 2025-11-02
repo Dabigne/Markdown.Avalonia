@@ -1,10 +1,7 @@
 ﻿using Avalonia;
 using Avalonia.Controls;
-using Avalonia.Remote.Protocol.Viewport;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace Markdown.Avalonia.Controls
 {
@@ -20,8 +17,8 @@ namespace Markdown.Avalonia.Controls
             => control.SetValue(IsEnabledProperty, value);
 
 
-        private int _columnCount;
-        private Grid _grid;
+        private readonly int _columnCount;
+        private readonly Grid _grid;
         private bool _isAutoArrangeTried = false;
 
         public AutoScaleColumnDefinitions(int columnCount, Grid owner)
